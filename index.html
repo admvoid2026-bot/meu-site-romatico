@@ -3,122 +3,212 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Lugar Favorito ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff0f5">
+  <title>Um Cantinho Para Nós 💗</title>
 
   <style>
+    :root {
+      --rosa: #e85d91;
+      --rosa-claro: #fff0f5;
+      --rosa-medio: #ffd6e5;
+      --texto: #633449;
+      --branco: #ffffff;
+    }
+
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      color: #fff;
+      color: var(--texto);
+      background: linear-gradient(180deg, #fff8fb, #ffeaf2);
       text-align: center;
-      background: linear-gradient(160deg, #190b18, #54152f, #160c20);
-      min-height: 100vh;
       overflow-x: hidden;
     }
 
     header {
-      padding: 55px 20px 25px;
+      padding: 58px 20px 40px;
+      background: linear-gradient(145deg, #ffe1ec, #fff7fa);
     }
 
-    .coracao {
-      font-size: 55px;
-      animation: pulsar 1.3s infinite;
+    .coracao-principal {
+      font-size: 58px;
+      animation: pulsar 1.5s infinite;
     }
 
     h1 {
-      color: #ffb6d5;
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    p {
-      line-height: 1.7;
-    }
-
-    .subtitulo {
-      color: #f7dce8;
-      font-size: 16px;
-    }
-
-    .cartao {
-      background: rgba(255,255,255,0.09);
-      border: 1px solid rgba(255,255,255,0.17);
-      border-radius: 22px;
-      padding: 24px 20px;
-      margin: 20px auto;
-      width: 88%;
-      max-width: 450px;
-      box-shadow: 0 8px 30px #0003;
+      color: #d9487d;
+      font-size: clamp(30px, 8vw, 43px);
+      margin: 15px 0;
     }
 
     h2 {
-      color: #ffc0d9;
+      color: #d9487d;
+      font-size: 23px;
+      margin-top: 0;
     }
 
-    button {
-      background: #ff77aa;
-      color: #351020;
-      border: none;
-      border-radius: 30px;
+    p {
+      line-height: 1.8;
+    }
+
+    .subtitulo {
+      font-size: 16px;
+      max-width: 420px;
+      margin: auto;
+    }
+
+    .botao {
+      display: inline-block;
+      background: var(--rosa);
+      color: white;
       padding: 14px 22px;
+      border: none;
+      border-radius: 28px;
       font-size: 16px;
       font-weight: bold;
+      text-decoration: none;
       cursor: pointer;
-      margin-top: 10px;
+      margin-top: 12px;
+      box-shadow: 0 5px 15px #e85d9130;
     }
 
-    button:active {
-      transform: scale(0.97);
+    .botao:active {
+      transform: scale(.97);
+    }
+
+    main {
+      padding: 12px 0;
+    }
+
+    .cartao {
+      background: rgba(255,255,255,.92);
+      margin: 22px auto;
+      padding: 26px 21px;
+      width: 90%;
+      max-width: 480px;
+      border-radius: 24px;
+      border: 1px solid #ffdfeb;
+      box-shadow: 0 8px 24px #a83c6510;
+    }
+
+    .etiqueta {
+      color: var(--rosa);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
     }
 
     #carta {
       display: none;
       text-align: left;
       white-space: pre-line;
-      color: #ffe5ef;
-      margin-top: 20px;
+      line-height: 1.95;
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 16px;
+      background: #fff4f8;
     }
 
-    .foto {
+    .galeria {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .galeria img {
       width: 100%;
-      max-width: 300px;
+      height: 190px;
+      object-fit: cover;
       border-radius: 15px;
-      margin-top: 12px;
+      border: 3px solid #ffe0ec;
+      background: #fff0f5;
     }
 
-    #tempo {
-      font-size: 19px;
-      color: #ffd0e2;
+    .legenda {
+      font-size: 12px;
+      color: #a36a82;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 14px;
+    }
+
+    .contador {
+      background: linear-gradient(135deg, #ffe0eb, #fff2f7);
+      border-radius: 18px;
+      padding: 20px 10px;
+      margin-top: 18px;
+    }
+
+    #dias {
+      font-size: 38px;
+      color: #d9487d;
       font-weight: bold;
     }
 
-    footer {
-      padding: 30px 15px;
-      color: #f5b9d1;
-      font-size: 13px;
+    #surpresa {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff0f6;
+      border-radius: 18px;
+      line-height: 1.9;
+      animation: aparecer .8s ease;
     }
 
-    .flutuante {
+    footer {
+      padding: 30px 20px 40px;
+      color: #c44e7e;
+    }
+
+    .coracao-flutuante {
       position: fixed;
-      bottom: -30px;
+      top: -30px;
+      z-index: 5;
       pointer-events: none;
-      animation: subir 6s linear forwards;
-      z-index: -1;
+      animation: cair linear forwards;
     }
 
     @keyframes pulsar {
-      50% { transform: scale(1.15); }
+      50% { transform: scale(1.12); }
     }
 
-    @keyframes subir {
-      to {
-        transform: translateY(-110vh) rotate(25deg);
+    @keyframes aparecer {
+      from {
         opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes cair {
+      to {
+        transform: translateY(110vh) rotate(300deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .galeria img {
+        height: 145px;
+      }
+
+      .cartao {
+        padding: 21px 16px;
       }
     }
   </style>
@@ -127,142 +217,253 @@
 <body>
 
   <header>
-    <div class="coracao">❤️</div>
-    <h1>Meu Lugar Favorito</h1>
+    <div class="coracao-principal">💗</div>
+    <p class="etiqueta">Uma página feita com amor</p>
+    <h1>Um Cantinho Para Nós</h1>
     <p class="subtitulo">
-      Fiz esse cantinho especialmente para você, meu amor.
+      Entre tantas pessoas no mundo, fico feliz
+      por ter você fazendo parte da minha história.
+      Fiz esse pequeno lugar pensando em você. 🌷
     </p>
+    <a class="botao" href="#carta-area">Tenho algo para te dizer 💌</a>
   </header>
 
-  <section class="cartao">
-    <h2>Para a menina que faz meu mundo melhor 💗</h2>
-    <p>
-      Se eu pudesse escolher de novo,
-      entre milhões de pessoas,
-      meu coração ainda escolheria você.
-    </p>
-    <p>
-      Você é uma parte muito especial
-      da minha história.
-    </p>
-  </section>
+  <main>
+    <section class="cartao" id="carta-area">
+      <p class="etiqueta">Leia com carinho</p>
+      <h2>Uma carta para o meu amor 💌</h2>
+      <p>
+        Tem sentimentos que são difíceis de explicar,
+        mas que merecem ser demonstrados.
+      </p>
 
-  <section class="cartao">
-    <h2>💌 Uma cartinha para você</h2>
-    <p>Tem algumas coisas que meu coração quer te dizer...</p>
+      <button class="botao" onclick="abrirCarta()">
+        Abrir minha carta ❤️
+      </button>
 
-    <button onclick="abrirCarta()">
-      Abrir minha cartinha ❤️
-    </button>
+      <div id="carta">
+        Meu amor,
 
-    <div id="carta">
-      Meu amor,
+        Se eu pudesse transformar tudo o que sinto
+        em palavras, ainda acho que nenhuma carta
+        seria grande o bastante para explicar o
+        espaço que você conquistou no meu coração.
 
-      Às vezes, eu fico pensando em como
-      uma pessoa pode se tornar tão especial
-      na vida de alguém.
+        Você se tornou alguém muito especial para mim.
+        Seu sorriso, seu jeito, nossas conversas e até
+        os pequenos momentos têm um valor enorme.
 
-      Você me faz sorrir de um jeito diferente,
-      deixa meus dias mais bonitos e faz
-      momentos simples virarem lembranças
-      que quero guardar comigo.
+        Eu amo a forma como você consegue deixar
+        meus dias mais bonitos. Às vezes, uma simples
+        mensagem sua já muda meu humor e me faz sorrir
+        sem nem perceber.
 
-      Eu não prometo que todos os dias
-      serão perfeitos, mas quero sempre
-      te tratar com carinho, sinceridade
-      e respeito.
+        Não quero prometer uma vida perfeita, porque
+        sei que ninguém é perfeito. Quero, porém,
+        que nunca faltem carinho, sinceridade,
+        respeito, cuidado e vontade de fazer dar certo.
 
-      Obrigado por fazer parte da minha vida.
-      Você é muito especial para mim.
+        Quero comemorar suas alegrias, te apoiar nos
+        dias difíceis e construir lembranças bonitas
+        ao seu lado, sempre respeitando seus sentimentos.
 
-      Com todo o meu carinho,
-      alguém que gosta muito de você. ❤️
-    </div>
-  </section>
+        Se existe algo que eu quero que você saiba,
+        é que você não precisa fazer nada extraordinário
+        para ser especial. Seu jeito de ser já significa
+        muito para mim.
 
-  <section class="cartao">
-    <h2>📸 Nosso cantinho de lembranças</h2>
-    <p>Um espaço para guardar nossos momentos favoritos.</p>
+        Obrigado por fazer parte da minha vida.
+        Espero que, quando olhar para esta página,
+        sinta um pouquinho de todo o carinho que coloquei
+        em cada palavra.
 
-    <!-- Coloque uma foto chamada foto.jpg na mesma pasta -->
-    <img
-      class="foto"
-      src="foto.jpg"
-      alt="Nossa lembrança especial"
-      onerror="this.style.display='none'"
-    >
+        Eu gosto muito de você, meu amor. Mais do que
+        consigo explicar em uma simples mensagem.
 
-    <p>Que a gente ainda tenha muitas histórias bonitas para viver. 💕</p>
-  </section>
+        Com todo o meu carinho,
+        alguém que fica feliz por ter você. ❤️
+      </div>
+    </section>
 
-  <section class="cartao">
-    <h2>⏳ Uma data especial</h2>
-    <p>Desde o dia que marcou nossa história:</p>
-    <p id="tempo">Escolha uma data no código</p>
-  </section>
+    <section class="cartao">
+      <p class="etiqueta">Nossas lembranças</p>
+      <h2>Momentos especiais 📸</h2>
+      <p>
+        Cada foto pode guardar uma lembrança,
+        um sorriso ou um momento que vale a pena recordar.
+      </p>
 
-  <section class="cartao">
-    <h2>🎶 Nossa música</h2>
-    <p>Coloque aqui uma música que faça você lembrar de mim.</p>
+      <div class="galeria">
+        <div>
+          <img src="foto1.jpg" alt="Nossa primeira lembrança"
+               onerror="this.style.display='none'">
+          <p class="legenda">Uma lembrança nossa 💕</p>
+        </div>
+        <div>
+          <img src="foto2.jpg" alt="Um momento especial"
+               onerror="this.style.display='none'">
+          <p class="legenda">Um momento especial 🌷</p>
+        </div>
+      </div>
 
-    <button onclick="abrirMusica()">
-      Ouvir nossa música 🎵
-    </button>
-  </section>
+      <p class="legenda">
+        As fotos aparecem quando você adicionar
+        foto1.jpg e foto2.jpg ao repositório.
+      </p>
+    </section>
+
+    <section class="cartao">
+      <p class="etiqueta">Uma canção para nós</p>
+      <h2>Nossa música 🎶</h2>
+      <p>
+        Algumas músicas parecem falar aquilo
+        que o coração sente.
+      </p>
+
+      <audio controls preload="none">
+        <source src="musica.mp3" type="audio/mpeg">
+        Seu navegador não consegue reproduzir este áudio.
+      </audio>
+
+      <p class="legenda">
+        Adicione seu arquivo musica.mp3 ao repositório
+        para usar o player. A música começa quando
+        você apertar o botão de reprodução.
+      </p>
+    </section>
+
+    <section class="cartao">
+      <p class="etiqueta">Nossa história</p>
+      <h2>O tempo ao seu lado ⏳</h2>
+      <p>
+        Cada dia pode ser uma nova oportunidade
+        de construir uma lembrança bonita.
+      </p>
+
+      <div class="contador">
+        <div id="dias">❤️</div>
+        <p id="legenda-dias">Nossa história continua...</p>
+      </div>
+    </section>
+
+    <section class="cartao">
+      <p class="etiqueta">Guarde este momento</p>
+      <h2>Uma última surpresa 🎁</h2>
+      <p>
+        Tem mais uma mensagem esperando por você.
+        Toque no botão e leia até o final.
+      </p>
+
+      <button class="botao" onclick="mostrarSurpresa()">
+        Abrir minha surpresa 💝
+      </button>
+
+      <div id="surpresa">
+        <div style="font-size:42px">💗🌷💗</div>
+        <h2>Você é muito especial!</h2>
+        <p>
+          Se você chegou até aqui, quero que leve
+          uma certeza com você: existe alguém que
+          preparou cada detalhe desta página pensando
+          em como fazer você sorrir.
+
+          Não importa quantas palavras eu escreva,
+          ainda vou encontrar novas formas de demonstrar
+          meu carinho por você.
+
+          Que a gente tenha muitos motivos para sorrir,
+          muitas conversas para lembrar e muitos momentos
+          bonitos para guardar no coração.
+
+          Obrigado por ser você. ❤️
+        </p>
+        <p><strong>Com carinho, de mim para você. 💌</strong></p>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    Feito com carinho, especialmente para você. ❤️
-    <p>Você tem um lugar muito especial no meu coração.</p>
+    Feito com muito carinho 💗
+    <p>Uma página, muitos sentimentos e uma pessoa especial.</p>
   </footer>
 
   <script>
     function abrirCarta() {
       const carta = document.getElementById("carta");
+      const aberta = carta.style.display === "block";
 
-      if (carta.style.display === "block") {
-        carta.style.display = "none";
-      } else {
-        carta.style.display = "block";
+      carta.style.display = aberta ? "none" : "block";
+
+      if (!aberta) {
+        carta.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
       }
     }
 
-    function abrirMusica() {
-      // Troque pelo link da música que vocês gostam.
-      window.open(
-        "https://www.youtube.com/",
-        "_blank"
-      );
+    function mostrarSurpresa() {
+      const surpresa = document.getElementById("surpresa");
+      const aberta = surpresa.style.display === "block";
+
+      surpresa.style.display = aberta ? "none" : "block";
+
+      if (!aberta) {
+        criarCoracoes();
+        surpresa.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      }
     }
 
-    // Troque pela data especial de vocês: ANO, MÊS-1, DIA.
-    const dataEspecial = new Date(2026, 0, 1);
-    const hoje = new Date();
+    /*
+      IMPORTANTE:
+      Troque a data abaixo pela data de vocês.
+      Formato: ANO, MÊS - 1, DIA.
+      Exemplo: 15 de março de 2026 = (2026, 2, 15).
+    */
+    const dataEspecial = new Date(2026, 9, 5);
+    dataEspecial.setHours(0, 0, 0, 0);
 
-    if (dataEspecial <= hoje) {
-      const dias = Math.floor(
-        (hoje - dataEspecial) / (1000 * 60 * 60 * 24)
-      );
+    function atualizarContador() {
+      const hoje = new Date();
+      hoje.setHours(0, 0, 0, 0);
 
-      document.getElementById("tempo").textContent =
-        dias + (dias === 1 ? " dia de uma história especial ❤️" :
-        " dias de uma história especial ❤️");
-    } else {
-      document.getElementById("tempo").textContent =
-        "Nossa história está só começando! ❤️";
+      const diferenca = hoje - dataEspecial;
+      const dias = Math.floor(diferenca / 86400000);
+
+      if (diferenca < 0) {
+        document.getElementById("dias").textContent = "💗";
+        document.getElementById("legenda-dias").textContent =
+          "Nossa data especial ainda vai chegar!";
+      } else {
+        document.getElementById("dias").textContent =
+          dias.toLocaleString("pt-BR");
+
+        document.getElementById("legenda-dias").textContent =
+          dias === 1
+            ? "dia de uma história especial ❤️"
+            : "dias de uma história especial ❤️";
+      }
     }
 
-    // Pequenos corações animados no fundo.
-    setInterval(() => {
-      const coracao = document.createElement("span");
-      coracao.className = "flutuante";
-      coracao.textContent = Math.random() > 0.5 ? "❤️" : "💕";
-      coracao.style.left = Math.random() * 100 + "vw";
-      coracao.style.fontSize = (14 + Math.random() * 18) + "px";
+    function criarCoracoes() {
+      for (let i = 0; i < 18; i++) {
+        const coracao = document.createElement("span");
+        coracao.className = "coracao-flutuante";
+        coracao.textContent = Math.random() > 0.5 ? "💗" : "💕";
+        coracao.style.left = Math.random() * 100 + "vw";
+        coracao.style.animationDuration = (3 + Math.random() * 3) + "s";
+        coracao.style.fontSize = (16 + Math.random() * 20) + "px";
 
-      document.body.appendChild(coracao);
+        document.body.appendChild(coracao);
 
-      setTimeout(() => coracao.remove(), 6000);
-    }, 700);
+        setTimeout(() => coracao.remove(), 6500);
+      }
+    }
+
+    atualizarContador();
   </script>
 
 </body>
