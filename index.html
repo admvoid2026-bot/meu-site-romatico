@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Lugar Favorito ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      text-align: center;
+      background: linear-gradient(160deg, #190b18, #54152f, #160c20);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 55px 20px 25px;
+    }
+
+    .coracao {
+      font-size: 55px;
+      animation: pulsar 1.3s infinite;
+    }
+
+    h1 {
+      color: #ffb6d5;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      line-height: 1.7;
+    }
+
+    .subtitulo {
+      color: #f7dce8;
+      font-size: 16px;
+    }
+
+    .cartao {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.17);
+      border-radius: 22px;
+      padding: 24px 20px;
+      margin: 20px auto;
+      width: 88%;
+      max-width: 450px;
+      box-shadow: 0 8px 30px #0003;
+    }
+
+    h2 {
+      color: #ffc0d9;
+    }
+
+    button {
+      background: #ff77aa;
+      color: #351020;
+      border: none;
+      border-radius: 30px;
+      padding: 14px 22px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    #carta {
+      display: none;
+      text-align: left;
+      white-space: pre-line;
+      color: #ffe5ef;
+      margin-top: 20px;
+    }
+
+    .foto {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 15px;
+      margin-top: 12px;
+    }
+
+    #tempo {
+      font-size: 19px;
+      color: #ffd0e2;
+      font-weight: bold;
+    }
+
+    footer {
+      padding: 30px 15px;
+      color: #f5b9d1;
+      font-size: 13px;
+    }
+
+    .flutuante {
+      position: fixed;
+      bottom: -30px;
+      pointer-events: none;
+      animation: subir 6s linear forwards;
+      z-index: -1;
+    }
+
+    @keyframes pulsar {
+      50% { transform: scale(1.15); }
+    }
+
+    @keyframes subir {
+      to {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="coracao">❤️</div>
+    <h1>Meu Lugar Favorito</h1>
+    <p class="subtitulo">
+      Fiz esse cantinho especialmente para você, meu amor.
+    </p>
+  </header>
+
+  <section class="cartao">
+    <h2>Para a menina que faz meu mundo melhor 💗</h2>
+    <p>
+      Se eu pudesse escolher de novo,
+      entre milhões de pessoas,
+      meu coração ainda escolheria você.
+    </p>
+    <p>
+      Você é uma parte muito especial
+      da minha história.
+    </p>
+  </section>
+
+  <section class="cartao">
+    <h2>💌 Uma cartinha para você</h2>
+    <p>Tem algumas coisas que meu coração quer te dizer...</p>
+
+    <button onclick="abrirCarta()">
+      Abrir minha cartinha ❤️
+    </button>
+
+    <div id="carta">
+      Meu amor,
+
+      Às vezes, eu fico pensando em como
+      uma pessoa pode se tornar tão especial
+      na vida de alguém.
+
+      Você me faz sorrir de um jeito diferente,
+      deixa meus dias mais bonitos e faz
+      momentos simples virarem lembranças
+      que quero guardar comigo.
+
+      Eu não prometo que todos os dias
+      serão perfeitos, mas quero sempre
+      te tratar com carinho, sinceridade
+      e respeito.
+
+      Obrigado por fazer parte da minha vida.
+      Você é muito especial para mim.
+
+      Com todo o meu carinho,
+      alguém que gosta muito de você. ❤️
+    </div>
+  </section>
+
+  <section class="cartao">
+    <h2>📸 Nosso cantinho de lembranças</h2>
+    <p>Um espaço para guardar nossos momentos favoritos.</p>
+
+    <!-- Coloque uma foto chamada foto.jpg na mesma pasta -->
+    <img
+      class="foto"
+      src="foto.jpg"
+      alt="Nossa lembrança especial"
+      onerror="this.style.display='none'"
+    >
+
+    <p>Que a gente ainda tenha muitas histórias bonitas para viver. 💕</p>
+  </section>
+
+  <section class="cartao">
+    <h2>⏳ Uma data especial</h2>
+    <p>Desde o dia que marcou nossa história:</p>
+    <p id="tempo">Escolha uma data no código</p>
+  </section>
+
+  <section class="cartao">
+    <h2>🎶 Nossa música</h2>
+    <p>Coloque aqui uma música que faça você lembrar de mim.</p>
+
+    <button onclick="abrirMusica()">
+      Ouvir nossa música 🎵
+    </button>
+  </section>
+
+  <footer>
+    Feito com carinho, especialmente para você. ❤️
+    <p>Você tem um lugar muito especial no meu coração.</p>
+  </footer>
+
+  <script>
+    function abrirCarta() {
+      const carta = document.getElementById("carta");
+
+      if (carta.style.display === "block") {
+        carta.style.display = "none";
+      } else {
+        carta.style.display = "block";
+      }
+    }
+
+    function abrirMusica() {
+      // Troque pelo link da música que vocês gostam.
+      window.open(
+        "https://www.youtube.com/",
+        "_blank"
+      );
+    }
+
+    // Troque pela data especial de vocês: ANO, MÊS-1, DIA.
+    const dataEspecial = new Date(2026, 0, 1);
+    const hoje = new Date();
+
+    if (dataEspecial <= hoje) {
+      const dias = Math.floor(
+        (hoje - dataEspecial) / (1000 * 60 * 60 * 24)
+      );
+
+      document.getElementById("tempo").textContent =
+        dias + (dias === 1 ? " dia de uma história especial ❤️" :
+        " dias de uma história especial ❤️");
+    } else {
+      document.getElementById("tempo").textContent =
+        "Nossa história está só começando! ❤️";
+    }
+
+    // Pequenos corações animados no fundo.
+    setInterval(() => {
+      const coracao = document.createElement("span");
+      coracao.className = "flutuante";
+      coracao.textContent = Math.random() > 0.5 ? "❤️" : "💕";
+      coracao.style.left = Math.random() * 100 + "vw";
+      coracao.style.fontSize = (14 + Math.random() * 18) + "px";
+
+      document.body.appendChild(coracao);
+
+      setTimeout(() => coracao.remove(), 6000);
+    }, 700);
+  </script>
+
+</body>
+</html>
